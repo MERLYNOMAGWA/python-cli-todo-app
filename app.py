@@ -11,7 +11,8 @@ def main():
       print("2. List Tasks")
       print("3. Complete Task")
       print("4. Delete Task")
-      print("5. Exit")
+      print("5. List Tasks Due Today")
+      print("6. Exit")
 
       choice = input("Choose an option: ")
 
@@ -24,6 +25,8 @@ def main():
       elif choice == "4":
          delete_task(tasks)
       elif choice == "5":
+         list_tasks_due_today(tasks)
+      elif choice == "6":
          save_tasks(tasks)
          print("Goodbye!")
          break
@@ -66,6 +69,15 @@ def delete_task(tasks):
          print("Task deleted.")
          return
    print("Task not found.")
+   
+def list_tasks_due_today(tasks):
+   today = date.today().isoformat()
+   today_tasks = [task for task in tasks if task.due_date == today]
+
+   if not today_tasks:
+      print("No tasks due today.")
+   for task in today_tasks:
+      print(task)
 
 if __name__ == "__main__":
    main()
