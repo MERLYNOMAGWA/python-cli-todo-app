@@ -1,0 +1,9 @@
+[
+    {
+        "id": 1,
+        "title": "Complete CLI project",
+        "description": "Finish creating the CLI to do Manager.",
+        "due_date": null,
+        "completed": true
+    }
+]

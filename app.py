@@ -37,6 +37,13 @@ def add_task(tasks):
    title = input("Enter task title: ")
    description = input("Enter task description: ")
    due_date = input("Enter due date (YYYY-MM-DD) [optional]: ")
+   
+   if due_date:
+      try:
+         datetime.strptime(due_date, "%Y-%m-%d")
+      except ValueError:
+         print("Invalid date format. Please use YYYY-MM-DD.")
+         return
 
    task_id = generate_task_id(tasks)
    task = Task(task_id, title, description, due_date if due_date else None)
@@ -51,7 +58,12 @@ def list_tasks(tasks):
       print(task)
 
 def complete_task(tasks):
-   task_id = input("Enter task ID to mark complete: ")
+   try:
+      task_id = int(input("Enter task ID to mark complete: "))
+   except ValueError:
+      print("Invalid input. Please enter a numeric ID.")
+      return
+   
    for task in tasks:
       if str(task.id) == task_id:
          task.mark_complete()
@@ -61,7 +73,12 @@ def complete_task(tasks):
    print("Task not found.")
 
 def delete_task(tasks):
-   task_id = input("Enter task ID to delete: ")
+   try:
+      task_id = int(input("Enter task ID to delete: "))
+   except ValueError:
+      print("Invalid input. Please enter a numeric ID.")
+      return
+   
    for task in tasks:
       if str(task.id) == task_id:
          tasks.remove(task)
