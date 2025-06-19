@@ -59,7 +59,7 @@ Task added!
 
 ## 📷 Screenshot
 
-![CLI in action](assets\images/Screenshot%20.png)
+![CLI in action](assets/images/cli-screenshot.png)
 
 ## 👤 Author
 Created by Merlyn for a Python project at DirectEd.
